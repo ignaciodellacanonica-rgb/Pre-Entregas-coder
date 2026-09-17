@@ -51,20 +51,6 @@
             </div>
         </nav>
 
-
-
-        <!--<a href="../index.html">
-            <img src="../img/logoeinar.png" alt="Logo de Einar Viandas">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./nosotros.html">Sobre mi</a></li>
-                <li><a href="#">Viandas</a></li>
-                <li><a href="./preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-            </ul>
-        </nav>-->
     </header>
 
     <main class="container-fluid">
@@ -74,7 +60,10 @@
 
         <aside class="hero">
             <p>Conoce nuestras promos</p>
-            <a href="#">Ver mas</a>
+            <!-- Boton que abre el modal -->
+            <button type="button" class="btn btn-promos" data-bs-toggle="modal" data-bs-target="#modalPromos">
+                Ver mas
+            </button>
         </aside>
 
         <section>
@@ -85,11 +74,11 @@
 
         <section>
             <h2>Nuestros beneficios</h2>
-            <ul>
-                <li>Ingredientes frescos y de estacion</li>
-                <li>Menu semanal variado</li>
-                <li>Entrega a domicilio</li>
-                <li>Opciones vegetarianas</li>
+            <ul class="list-group">
+                <li class="list-group-item">Ingredientes frescos y de estacion</li>
+                <li class="list-group-item">Menu semanal variado</li>
+                <li class="list-group-item">Entrega a domicilio</li>
+                <li class="list-group-item">Opciones vegetarianas</li>
             </ul>
         </section>
         <section class="row g-3 m-4"> <!-- Antes estaba TARJETAS-->
@@ -128,6 +117,26 @@
                 </article>
             </div>
         </section>
+
+        <!-- Modal de promos -->
+        <div class="modal fade" id="modalPromos" tabindex="-1" aria-labelledby="modalPromosLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalPromosLabel">Promos de la semana</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Pack semanal:</strong> llevando 5 viandas, la sexta te sale de regalo.</p>
+                        <p><strong>Envio sin cargo:</strong> en pedidos de 4 viandas o mas dentro de la zona.</p>
+                        <p><strong>Primer pedido:</strong> 10% de descuento si nos escribis por Instagram.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-promos" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>

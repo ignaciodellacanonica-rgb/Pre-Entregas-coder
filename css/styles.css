@@ -150,7 +150,48 @@ h1 {
     font-size: 1.3rem;
     padding: 1rem;
 }
+ /*Estilos de Nosotros*/
+/* ===== Acordeon Preguntas Frecuentes ===== */
+.accordion {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
 
+.accordion-item {
+    border: 2px solid rgb(244, 122, 7);
+    margin-bottom: 0.5rem;
+}
+
+.accordion-button {
+    background-color: rgb(249, 187, 95);
+    color: rgb(1, 75, 6);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: rgb(24, 226, 58);
+    color: rgb(255, 248, 245);
+}
+
+.accordion-button:focus {
+    outline: 2px solid rgb(18, 135, 212);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.accordion-button:active {
+    transform: scale(0.99);
+}
+
+.accordion-body {
+    background-color: rgb(255, 248, 245);
+    color: rgb(1, 75, 6);
+    font-size: 1.1rem;
+}
 
  /*Estilos de Viandas*/
 
@@ -231,6 +272,63 @@ h1 {
     .escritorio {
         display:block;
     }
+
+/* ===== Modal de promos ===== */
+.btn-promos {
+    background-color: rgb(1, 75, 6);
+    color: rgb(255, 248, 245);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-promos:hover {
+    background-color: rgb(24, 226, 58);
+    color: rgb(255, 248, 245);
+}
+
+.btn-promos:focus {
+    outline: 2px solid rgb(18, 135, 212);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.modal-content {
+    background-color: rgb(255, 248, 245);
+    color: rgb(1, 75, 6);
+    border: 3px solid rgb(244, 122, 7);
+}
+
+.modal-header {
+    background-color: rgb(244, 122, 7);
+    color: rgb(255, 248, 245);
+}
+
+.modal-body p {
+    padding: 0.5rem 0;
+}
+
+/* ===== Lista de beneficios ===== */
+.list-group {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.list-group-item {
+    background-color: rgb(249, 187, 95);
+    color: rgb(1, 75, 6);
+    border: 1px solid rgb(244, 122, 7);
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: rgb(244, 122, 7);
+    color: rgb(255, 248, 245);
+}
 
 /* Footer */
 footer {
