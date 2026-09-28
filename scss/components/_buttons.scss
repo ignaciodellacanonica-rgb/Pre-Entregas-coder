@@ -1,0 +1,62 @@
+@use "../utilities/variables" as v;
+@use "../utilities/extend";
+
+.btn-promos {
+  @extend %transicion-corta;
+
+  background-color: v.$color-texto;
+  color: v.$color-claro;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: v.$color-verde;
+    color: v.$color-claro;
+  }
+
+  &:focus {
+    outline: 2px solid v.$color-azul;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.modal-content {
+  background-color: v.$color-claro;
+  color: v.$color-texto;
+  border: 3px solid v.$color-naranja;
+}
+
+.modal-header {
+  background-color: v.$color-naranja;
+  color: v.$color-claro;
+}
+
+.modal-body p {
+  padding: 0.5rem 0;
+}
+
+.list-group {
+  width: v.$ancho-contenido;
+  max-width: v.$ancho-beneficios;
+  margin: 0 auto;
+}
+
+.list-group-item {
+  background-color: v.$color-amarillo;
+  color: v.$color-texto;
+  border: 1px solid v.$color-naranja;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: v.$color-naranja;
+    color: v.$color-claro;
+  }
+}

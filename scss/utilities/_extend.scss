@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+%barras {
+  color: v.$color-texto-claro;
+  background-color: v.$color-naranja-oscuro;
+  background-image: url("../img/fondo1.jpg");
+  width: 100%;
+}
+
+%lista-flexible {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-evenly;
+}
+
+%transicion-corta {
+  transition: all 0.3s;
+}

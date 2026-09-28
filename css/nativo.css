@@ -1,0 +1,391 @@
+/*===== Tipografia ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+ body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    background-color: #f2e9d8;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+header, footer {
+    color:rgb(245, 246, 247);
+    background-color:rgb(155, 65, 2);
+    background-image: url("../img/fondo1.jpg");
+    width: 100%;
+    /*display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;*/
+}
+
+header nav ul, footer ul {
+    list-style:none;
+    display:flex;
+    gap: 1.5rem;
+    justify-content:space-evenly;
+}
+
+.hamburguesa {
+    color:rgb(18, 135, 212);
+    border: 1px solid rgb(18, 135, 212);
+    font-size: 2.5rem;
+    transition: all 0.3s;
+}
+.hamburguesa:hover {
+    background-color:rgb(18, 135, 212);
+    color:rgb(255, 248, 245);
+}
+.hamburguesa:focus {
+    outline: 2px solid rgb(24, 226, 58);
+    outline-offset: 2px;
+}
+.hamburguesa:active {
+    transform: scale(0.95);
+}
+
+
+.link.menu {
+    color:rgb(242, 245, 247);
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.link.menu:visited {
+    color:rgb(238, 233, 230);
+}
+.link.menu:active {
+    color:rgb(18, 135, 212);
+    text-decoration: underline; 
+}
+.link.menu:hover {
+    background-color:rgb(24, 226, 58);
+    color:rgb(242, 245, 247);
+}
+.link.menu:focus {
+    outline: 2px solid rgb(24, 226, 58);
+    outline-offset: 2px;
+}
+
+/*===== Colores ===== */
+
+
+
+
+/* ==== Main ==== */
+main {
+    color: rgb(1, 75, 6);
+    background-color: rgb(255, 248, 245);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.hero {
+    background-color: rgb(244, 122, 7);
+    color: #f2e9d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;  
+    margin-top: 2rem;
+    transition: all 0.5s;
+}
+
+.hero p {
+    font-size: 2rem;
+}
+
+.hero a {
+    color: rgb(255, 248, 245);
+    background-color: rgb(1, 75, 6);
+    padding: 1rem;
+    transition: all 0.3s;
+}
+.hero a:visited {
+    color:rgb(238, 233, 230);
+}
+.hero a:active {
+    color:rgb(18, 135, 212);
+    text-decoration: underline
+}
+
+.hero a:hover {
+    background-color:rgb(24, 226, 58);
+}
+.hero a:focus {
+    outline: 2px solid rgb(18, 135, 212);
+    outline-offset: 2px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .tarjetas {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+.tarjeta {
+    background-color: rgb(249, 187, 95);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.5rem;
+    transition: all 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 18px rgba(1, 75, 6, 0.25);
+}
+
+.tarjeta h2 {
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+.tarjeta p {
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+ /*Estilos de Nosotros*/
+/* ===== Acordeon Preguntas Frecuentes ===== */
+.accordion {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.accordion-item {
+    border: 2px solid rgb(244, 122, 7);
+    margin-bottom: 0.5rem;
+}
+
+.accordion-button {
+    background-color: rgb(249, 187, 95);
+    color: rgb(1, 75, 6);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+/* cuando la pregunta esta abierta */
+.accordion-button:not(.collapsed) {
+    background-color: rgb(244, 122, 7);
+    color: rgb(255, 248, 245);
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background-color: rgb(24, 226, 58);
+    color: rgb(255, 248, 245);
+}
+
+.accordion-button:focus {
+    outline: 2px solid rgb(18, 135, 212);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.accordion-button:active {
+    transform: scale(0.99);
+}
+
+.accordion-body {
+    background-color: rgb(255, 248, 245);
+    color: rgb(1, 75, 6);
+    font-size: 1.1rem;
+}
+
+ /*Estilos de Viandas*/
+
+.viandas-intro {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.viandas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.escritorio {
+    display:none;
+}
+
+.viandas figure {
+    margin: 0;
+    height: 280px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.viandas figure:hover {
+    box-shadow:5px 5px 10px rgb(249, 187, 95);
+    transform: scale(1.02);
+}
+.viandas figure:focus {
+    box-shadow:5px 5px 10px rgb(249, 187, 95);
+    outline: 2px solid rgb(18, 135, 212);
+}
+.viandas figure:active {
+    transform: scale(0.98);
+}
+
+.viandas img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+}
+
+.viandas figcaption {
+    padding: 0.8rem;
+    text-align: center;
+}
+
+
+@media (min-width: 760px){
+    .viandas {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "vertical cuadrada-1"
+            "vertical cuadrada-2"
+            "horizontal horizontal";
+    }
+
+    .foto-vertical {
+        grid-area: vertical;
+    }
+
+    .foto-cuadrada1 {
+        grid-area: cuadrada-1;
+    }
+
+    .foto-cuadrada2 {
+        grid-area: cuadrada-2;
+    }
+
+    .foto-horizontal {
+        grid-area: horizontal;
+    }
+}
+
+@media (min-width: 1024px){
+    .viandas {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "vertical cuadrada-1 cuadrada-2"
+            "vertical horizontal horizontal";
+    }
+
+    .movil {
+        display:none;
+    }
+
+    .escritorio {
+        display:block;
+    }
+}
+
+/* ===== Modal de promos ===== */
+.btn-promos {
+    background-color: rgb(1, 75, 6);
+    color: rgb(255, 248, 245);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-promos:hover {
+    background-color: rgb(24, 226, 58);
+    color: rgb(255, 248, 245);
+}
+
+.btn-promos:focus {
+    outline: 2px solid rgb(18, 135, 212);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.btn-promos:active {
+    transform: scale(0.97);
+}
+
+.modal-content {
+    background-color: rgb(255, 248, 245);
+    color: rgb(1, 75, 6);
+    border: 3px solid rgb(244, 122, 7);
+}
+
+.modal-header {
+    background-color: rgb(244, 122, 7);
+    color: rgb(255, 248, 245);
+}
+
+.modal-body p {
+    padding: 0.5rem 0;
+}
+
+/* ===== Lista de beneficios ===== */
+.list-group {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.list-group-item {
+    background-color: rgb(249, 187, 95);
+    color: rgb(1, 75, 6);
+    border: 1px solid rgb(244, 122, 7);
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: rgb(244, 122, 7);
+    color: rgb(255, 248, 245);
+}
+
+
+
+
+
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+}

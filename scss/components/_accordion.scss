@@ -1,0 +1,50 @@
+@use "../utilities/variables" as v;
+@use "../utilities/extend";
+
+.accordion {
+  width: v.$ancho-contenido;
+  max-width: v.$ancho-acordeon;
+  margin: 0 auto 2rem;
+}
+
+.accordion-item {
+  border: 2px solid v.$color-naranja;
+  margin-bottom: 0.5rem;
+}
+
+.accordion-button {
+  @extend %transicion-corta;
+
+  background-color: v.$color-amarillo;
+  color: v.$color-texto;
+  font-family: v.$fuente-principal;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  &:not(.collapsed) {
+    background-color: v.$color-naranja;
+    color: v.$color-claro;
+    box-shadow: none;
+  }
+
+  &:hover {
+    background-color: v.$color-verde;
+    color: v.$color-claro;
+  }
+
+  &:focus {
+    outline: 2px solid v.$color-azul;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.accordion-body {
+  background-color: v.$color-claro;
+  color: v.$color-texto;
+  font-size: 1.1rem;
+}

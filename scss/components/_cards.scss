@@ -1,0 +1,33 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.tarjetas {
+  @include m.grid(1fr, $gap: 1rem);
+
+  @include m.escritorio {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.tarjeta {
+  background-color: v.$color-amarillo;
+  width: 100%;
+  @include m.flex(column, flex-start, center, 0.7rem);
+  padding: 1.5rem;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: v.$sombra-tarjeta;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    padding: 1rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}

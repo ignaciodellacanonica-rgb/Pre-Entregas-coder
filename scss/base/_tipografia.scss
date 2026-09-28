@@ -1,0 +1,10 @@
+@use "../utilities/variables" as v;
+
+body {
+  font-family: v.$fuente-principal;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5rem;
+}

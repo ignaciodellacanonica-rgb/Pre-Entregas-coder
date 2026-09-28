@@ -1,0 +1,48 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+@use "../utilities/extend";
+
+main {
+  color: v.$color-texto;
+  background-color: v.$color-claro;
+  @include m.flex(column, space-around, center, 1rem);
+}
+
+.hero {
+  background-color: v.$color-naranja;
+  color: v.$color-fondo;
+  @include m.flex(column, space-around, center, 1rem);
+  padding: 2rem;
+  margin-top: 2rem;
+  transition: all 0.5s;
+
+  p {
+    font-size: 2rem;
+  }
+
+  a {
+    @extend %transicion-corta;
+
+    color: v.$color-claro;
+    background-color: v.$color-texto;
+    padding: 1rem;
+
+    &:visited {
+      color: rgb(238, 233, 230);
+    }
+
+    &:active {
+      color: v.$color-azul;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      background-color: v.$color-verde;
+    }
+
+    &:focus {
+      outline: 2px solid v.$color-azul;
+      outline-offset: 2px;
+    }
+  }
+}
