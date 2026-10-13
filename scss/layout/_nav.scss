@@ -18,8 +18,8 @@ header nav ul {
 .hamburguesa {
   @extend %transicion-corta;
 
-  color: v.$color-azul;
-  border: 1px solid v.$color-azul;
+  color: v.$color-claro;
+  border: 1px solid v.$color-claro;
   font-size: 2rem;
 
   &:hover {
@@ -55,7 +55,7 @@ header nav ul {
   }
 
   &:active {
-    color: v.$color-azul;
+    color: v.$color-amarillo;
     text-decoration: underline;
   }
 

@@ -39,7 +39,7 @@ img {
 footer, header {
   color: rgb(245, 246, 247);
   background-color: rgb(155, 65, 2);
-  background-image: url("../img/fondo1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/fondo-madera.jpg");
   width: 100%;
 }
 
@@ -74,8 +74,8 @@ header nav ul {
 }
 
 .hamburguesa {
-  color: rgb(18, 135, 212);
-  border: 1px solid rgb(18, 135, 212);
+  color: rgb(255, 248, 245);
+  border: 1px solid rgb(255, 248, 245);
   font-size: 2rem;
 }
 .hamburguesa:hover {
@@ -103,11 +103,11 @@ header nav ul {
   color: rgb(238, 233, 230);
 }
 .link.menu:active {
-  color: rgb(18, 135, 212);
+  color: rgb(249, 187, 95);
   text-decoration: underline;
 }
 .link.menu:hover {
-  background-color: rgb(24, 226, 58);
+  background-color: rgb(16, 110, 32);
   color: rgb(242, 245, 247);
 }
 @keyframes aparecer {
@@ -145,7 +145,7 @@ main h1 {
 }
 
 .hero {
-  background-color: rgb(244, 122, 7);
+  background-color: rgb(170, 70, 0);
   color: #f2e9d8;
   display: flex;
   flex-direction: column;
@@ -321,7 +321,7 @@ footer img:hover {
   font-weight: bold;
 }
 .btn-promos:hover {
-  background-color: rgb(24, 226, 58);
+  background-color: rgb(16, 110, 32);
   color: rgb(255, 248, 245);
   animation: latido 0.6s ease;
 }
@@ -332,11 +332,11 @@ footer img:hover {
 .modal-content {
   background-color: rgb(255, 248, 245);
   color: rgb(1, 75, 6);
-  border: 3px solid rgb(244, 122, 7);
+  border: 3px solid rgb(170, 70, 0);
 }
 
 .modal-header {
-  background-color: rgb(244, 122, 7);
+  background-color: rgb(170, 70, 0);
   color: rgb(255, 248, 245);
 }
 
@@ -353,12 +353,12 @@ footer img:hover {
 .list-group-item {
   background-color: rgb(249, 187, 95);
   color: rgb(1, 75, 6);
-  border: 1px solid rgb(244, 122, 7);
+  border: 1px solid rgb(170, 70, 0);
   font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 .list-group-item:hover {
-  background-color: rgb(244, 122, 7);
+  background-color: rgb(170, 70, 0);
   color: rgb(255, 248, 245);
 }
 
@@ -411,7 +411,7 @@ footer img:hover {
 }
 
 .accordion-item {
-  border: 2px solid rgb(244, 122, 7);
+  border: 2px solid rgb(170, 70, 0);
   margin-bottom: 0.5rem;
 }
 
@@ -423,12 +423,12 @@ footer img:hover {
   font-weight: bold;
 }
 .accordion-button:not(.collapsed) {
-  background-color: rgb(244, 122, 7);
+  background-color: rgb(170, 70, 0);
   color: rgb(255, 248, 245);
   box-shadow: none;
 }
 .accordion-button:hover {
-  background-color: rgb(24, 226, 58);
+  background-color: rgb(16, 110, 32);
   color: rgb(255, 248, 245);
 }
 .accordion-body {

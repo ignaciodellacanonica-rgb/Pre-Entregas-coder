@@ -3,7 +3,8 @@
 %barras {
   color: v.$color-texto-claro;
   background-color: v.$color-naranja-oscuro;
-  background-image: url("../img/fondo1.jpg");
+  // capa oscura para que el texto se lea bien
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/fondo-madera.jpg");
   width: 100%;
 }
 
