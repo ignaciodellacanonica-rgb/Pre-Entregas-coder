@@ -1,5 +1,7 @@
+// ===== Tipografia =====
 $fuente-principal: "Poppins", sans-serif;
 
+// ===== Colores =====
 $color-fondo: #f2e9d8;
 $color-claro: rgb(255, 248, 245);
 $color-texto-claro: rgb(245, 246, 247);
@@ -10,9 +12,23 @@ $color-amarillo: rgb(249, 187, 95);
 $color-azul: rgb(18, 135, 212);
 $color-verde: rgb(24, 226, 58);
 
+// ===== Sombras =====
 $sombra-tarjeta: 0 10px 18px rgba(1, 75, 6, 0.25);
 $sombra-vianda: 5px 5px 10px $color-amarillo;
 
+// ===== Medidas =====
+$espacio: 1rem; // unidad base: el resto se calcula con operadores (* / + -)
+$radio: 8px;
 $ancho-contenido: 90%;
+$ancho-maximo: 1200px;
 $ancho-acordeon: 800px;
 $ancho-beneficios: 700px;
+
+// ===== Breakpoints (mobile-first) =====
+$bp-tablet: 768px;
+$bp-escritorio: 1024px;
+
+// ===== Animaciones =====
+$duracion-rapida: 0.3s;
+$duracion-lenta: 0.5s;
+$curva-suave: ease-in-out;

@@ -2,22 +2,90 @@
 @use "../utilities/mixins" as m;
 @use "../utilities/extend";
 
+// ===== Animacion nativa: entrada de los titulos =====
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 main {
   color: v.$color-texto;
   background-color: v.$color-claro;
-  @include m.flex(column, space-around, center, 1rem);
+  @include m.flex(column, flex-start, center, v.$espacio * 1.5);
+  flex: 1; // empuja el footer al final de la pantalla
+  width: 100%;
+  padding-bottom: v.$espacio * 2;
+  overflow-x: clip; // red de seguridad: nada genera scroll horizontal
+
+  // Todos los bloques ocupan el ancho disponible (evita que se achiquen o se desborden)
+  > * {
+    width: 100%;
+    max-width: v.$ancho-maximo;
+  }
+
+  // Encabezado de cada pagina (h1 + bajada)
+  > section:first-child {
+    @extend %texto-centrado;
+    padding-top: v.$espacio * 2;
+  }
+
+  h1 {
+    @include m.animacion(aparecer, 0.8s);
+  }
+
+  h1 + p {
+    @include m.animacion(aparecer, 0.8s, 0.2s);
+    margin-top: v.$espacio * 0.5;
+  }
+
+  // Secciones de texto del inicio
+  > section:not(.container) {
+    padding-inline: v.$espacio;
+
+    > h2 {
+      text-align: center;
+      margin-bottom: v.$espacio;
+    }
+
+    > p {
+      max-width: 70ch;
+      margin-inline: auto;
+      text-align: center;
+    }
+  }
 }
 
+// ===== Hero / promos =====
 .hero {
   background-color: v.$color-naranja;
   color: v.$color-fondo;
-  @include m.flex(column, space-around, center, 1rem);
-  padding: 2rem;
-  margin-top: 2rem;
-  transition: all 0.5s;
+  @include m.flex(column, space-around, center, v.$espacio);
+  width: v.$ancho-contenido;
+  max-width: v.$ancho-maximo * 0.75; // operador: 900px
+  padding: (v.$espacio * 2) v.$espacio;
+  margin-top: v.$espacio;
+  border-radius: v.$radio * 2;
+  text-align: center;
+  @include m.transicion(transform box-shadow, v.$duracion-lenta);
+
+  &:hover {
+    box-shadow: v.$sombra-tarjeta;
+  }
+
+  @include m.tablet {
+    padding: v.$espacio * 3;
+  }
 
   p {
-    font-size: 2rem;
+    @include m.tamano-fuente(1.5rem, 1.75rem, 2rem);
+    margin: 0;
   }
 
   a {
@@ -25,7 +93,7 @@ main {
 
     color: v.$color-claro;
     background-color: v.$color-texto;
-    padding: 1rem;
+    padding: v.$espacio;
 
     &:visited {
       color: rgb(238, 233, 230);
@@ -41,8 +109,29 @@ main {
     }
 
     &:focus {
-      outline: 2px solid v.$color-azul;
-      outline-offset: 2px;
+      @extend %foco-visible;
     }
   }
+}
+
+// ===== Pagina "Sobre mi" =====
+main .container figure {
+  margin: 0;
+  text-align: center;
+
+  img {
+    border-radius: v.$radio * 2;
+    box-shadow: v.$sombra-tarjeta;
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  figcaption {
+    margin-top: v.$espacio * 0.5;
+    font-style: italic;
+  }
+}
+
+main .container h2 {
+  margin-bottom: v.$espacio;
 }

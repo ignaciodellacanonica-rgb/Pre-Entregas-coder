@@ -1,5 +1,7 @@
 @use "variables" as v;
 
+// Placeholders: se reutilizan con @extend en distintos partials
+
 %barras {
   color: v.$color-texto-claro;
   background-color: v.$color-naranja-oscuro;
@@ -15,5 +17,18 @@
 }
 
 %transicion-corta {
-  transition: all 0.3s;
+  transition: all v.$duracion-rapida;
+}
+
+// Foco visible y accesible para links, botones y figuras
+%foco-visible {
+  outline: 2px solid v.$color-azul;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+// Bloque de texto centrado y legible
+%texto-centrado {
+  text-align: center;
+  padding: v.$espacio (v.$espacio * 1.5);
 }

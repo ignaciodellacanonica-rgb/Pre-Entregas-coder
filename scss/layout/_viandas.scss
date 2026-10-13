@@ -1,28 +1,33 @@
 @use "../utilities/variables" as v;
 @use "../utilities/mixins" as m;
+@use "../utilities/extend";
 
 .viandas-intro {
-  text-align: center;
-  padding: 1.5rem;
+  @extend %texto-centrado;
 }
 
+// ===== Galeria (tablet y escritorio) =====
 .viandas {
-  @include m.grid(1fr, $gap: 1rem);
+  @include m.grid(1fr, $gap: v.$espacio);
+  padding: v.$espacio; // deja lugar al scale() del hover sin generar scroll
 
   figure {
     margin: 0;
-    height: 280px;
-    transition: all 0.3s;
+    @include m.flex(column);
+    background-color: v.$color-amarillo;
+    border-radius: v.$radio;
+    overflow: hidden;
     cursor: pointer;
+    @include m.transicion(transform box-shadow);
 
     &:hover {
       box-shadow: v.$sombra-vianda;
       transform: scale(1.02);
     }
 
-    &:focus {
+    &:focus-visible {
       box-shadow: v.$sombra-vianda;
-      outline: 2px solid v.$color-azul;
+      @extend %foco-visible;
     }
 
     &:active {
@@ -40,9 +45,10 @@
   figcaption {
     padding: 0.8rem;
     text-align: center;
+    font-weight: 700;
   }
 
-  @media (min-width: 760px) {
+  @include m.tablet {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas:
@@ -53,6 +59,7 @@
 
   @include m.escritorio {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
       "vertical cuadrada-1 cuadrada-2"
       "vertical horizontal horizontal";
@@ -60,31 +67,53 @@
 }
 
 .foto-vertical {
-  @media (min-width: 760px) {
+  @include m.tablet {
     grid-area: vertical;
+
+    // la foto vertical ocupa dos filas: la imagen se estira para llenarlas
+    img {
+      flex: 1 1 0;
+      height: auto;
+      min-height: 260px;
+    }
   }
 }
 
 .foto-cuadrada1 {
-  @media (min-width: 760px) {
+  @include m.tablet {
     grid-area: cuadrada-1;
   }
 }
 
 .foto-cuadrada2 {
-  @media (min-width: 760px) {
+  @include m.tablet {
     grid-area: cuadrada-2;
   }
 }
 
 .foto-horizontal {
-  @media (min-width: 760px) {
+  @include m.tablet {
     grid-area: horizontal;
   }
 }
 
+// ===== Carrusel (solo mobile) =====
 .movil {
-  @include m.escritorio {
+  padding-inline: v.$espacio;
+
+  .carousel {
+    border-radius: v.$radio * 2;
+    overflow: hidden;
+    box-shadow: v.$sombra-tarjeta;
+  }
+
+  .carousel-item img {
+    height: 320px;
+    object-fit: cover;
+  }
+
+  // desde tablet se muestra la galeria en grilla
+  @include m.tablet {
     display: none;
   }
 }
@@ -92,7 +121,7 @@
 .escritorio {
   display: none;
 
-  @include m.escritorio {
+  @include m.tablet {
     display: block;
   }
 }

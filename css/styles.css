@@ -4,7 +4,52 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+h1 {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+h2 {
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 1.05rem;
+  }
+}
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.1rem;
+  }
 }
 
 * {
@@ -15,6 +60,9 @@ h1 {
 
 body {
   background-color: #f2e9d8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -23,8 +71,18 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 footer, header {
   color: rgb(245, 246, 247);
   background-color: rgb(155, 65, 2);
@@ -43,18 +101,63 @@ footer ul, header nav ul {
   transition: all 0.3s;
 }
 
+.accordion-button:focus, .btn-promos:focus, .btn-promos:focus-visible, footer a:focus-visible, .viandas figure:focus-visible, .hero a:focus, .hamburguesa:focus, .hamburguesa:focus-visible, .link.menu:focus-visible {
+  outline: 2px solid rgb(18, 135, 212);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.viandas-intro, main > section:first-child {
+  text-align: center;
+  padding: 1rem 1.5rem;
+}
+
+header {
+  padding-block: 0.25rem;
+}
+
+.navbar-brand img {
+  width: 70px;
+  transition: transform 0.5s ease-in-out;
+}
+.navbar-brand img:hover {
+  transform: rotate(-6deg) scale(1.05);
+}
+@media (min-width: 768px) {
+  .navbar-brand img {
+    width: 90px;
+  }
+}
+@media (min-width: 1024px) {
+  .navbar-brand img {
+    width: 100px;
+  }
+}
+
+header nav ul {
+  gap: 0.25rem;
+  padding-block: 0.5rem;
+}
+@media (min-width: 1024px) {
+  header nav ul {
+    gap: 0.5rem;
+    padding-block: 0;
+  }
+}
+
 .hamburguesa {
   color: rgb(18, 135, 212);
   border: 1px solid rgb(18, 135, 212);
-  font-size: 2.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0.25rem 0.75rem;
 }
-.hamburguesa:hover {
+.hamburguesa:hover, .hamburguesa[aria-expanded=true] {
   background-color: rgb(18, 135, 212);
   color: rgb(255, 248, 245);
 }
-.hamburguesa:focus {
-  outline: 2px solid rgb(24, 226, 58);
-  outline-offset: 2px;
+.hamburguesa[aria-expanded=true] {
+  transform: rotate(90deg);
 }
 .hamburguesa:active {
   transform: scale(0.95);
@@ -62,11 +165,33 @@ footer ul, header nav ul {
 
 .link.menu {
   color: rgb(242, 245, 247);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+@media (min-width: 768px) {
+  .link.menu {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .link.menu {
+    font-size: 1.1rem;
+  }
+}
+.link.menu {
   font-weight: bold;
   padding: 0.5em;
-  border-radius: 5px;
-  transition: all 0.5s;
+  border-radius: 4px;
+  transition: all 0.5s ease-in-out;
+}
+@media (min-width: 1024px) {
+  .link.menu {
+    white-space: nowrap;
+  }
+}
+@media (min-width: 1200px) {
+  .link.menu {
+    font-size: 1.25rem;
+  }
 }
 .link.menu:visited {
   color: rgb(238, 233, 230);
@@ -78,20 +203,66 @@ footer ul, header nav ul {
 .link.menu:hover {
   background-color: rgb(24, 226, 58);
   color: rgb(242, 245, 247);
+  transform: translateY(-2px);
 }
-.link.menu:focus {
-  outline: 2px solid rgb(24, 226, 58);
-  outline-offset: 2px;
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 main {
   color: rgb(1, 75, 6);
   background-color: rgb(255, 248, 245);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex: 1;
+  width: 100%;
+  padding-bottom: 2rem;
+  overflow-x: clip;
+}
+main > * {
+  width: 100%;
+  max-width: 1200px;
+}
+main > section:first-child {
+  padding-top: 2rem;
+}
+main h1 {
+  animation-name: aparecer;
+  animation-duration: 0.8s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+main h1 + p {
+  animation-name: aparecer;
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  margin-top: 0.5rem;
+}
+main > section:not(.container) {
+  padding-inline: 1rem;
+}
+main > section:not(.container) > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+main > section:not(.container) > p {
+  max-width: 70ch;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .hero {
@@ -102,12 +273,37 @@ main {
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
-  margin-top: 2rem;
-  transition: all 0.5s;
+  width: 90%;
+  max-width: 900px;
+  padding: 2rem 1rem;
+  margin-top: 1rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform box-shadow 0.5s ease-in-out;
+}
+.hero:hover {
+  box-shadow: 0 10px 18px rgba(1, 75, 6, 0.25);
+}
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem;
+  }
 }
 .hero p {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  .hero p {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero p {
+    font-size: 2rem;
+  }
+}
+.hero p {
+  margin: 0;
 }
 .hero a {
   color: rgb(255, 248, 245);
@@ -124,34 +320,50 @@ main {
 .hero a:hover {
   background-color: rgb(24, 226, 58);
 }
-.hero a:focus {
-  outline: 2px solid rgb(18, 135, 212);
-  outline-offset: 2px;
+main .container figure {
+  margin: 0;
+  text-align: center;
+}
+main .container figure img {
+  border-radius: 16px;
+  box-shadow: 0 10px 18px rgba(1, 75, 6, 0.25);
+  max-height: 420px;
+  object-fit: cover;
+}
+main .container figure figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
-.viandas-intro {
-  text-align: center;
-  padding: 1.5rem;
+main .container h2 {
+  margin-bottom: 1rem;
 }
 
 .viandas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 1rem;
 }
 .viandas figure {
   margin: 0;
-  height: 280px;
-  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  background-color: rgb(249, 187, 95);
+  border-radius: 8px;
+  overflow: hidden;
   cursor: pointer;
+  transition: transform box-shadow 0.3s ease-in-out;
 }
 .viandas figure:hover {
   box-shadow: 5px 5px 10px rgb(249, 187, 95);
   transform: scale(1.02);
 }
-.viandas figure:focus {
+.viandas figure:focus-visible {
   box-shadow: 5px 5px 10px rgb(249, 187, 95);
-  outline: 2px solid rgb(18, 135, 212);
 }
 .viandas figure:active {
   transform: scale(0.98);
@@ -165,8 +377,9 @@ main {
 .viandas figcaption {
   padding: 0.8rem;
   text-align: center;
+  font-weight: 700;
 }
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .viandas {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
@@ -176,35 +389,53 @@ main {
 @media (min-width: 1024px) {
   .viandas {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas: "vertical cuadrada-1 cuadrada-2" "vertical horizontal horizontal";
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .foto-vertical {
     grid-area: vertical;
   }
+  .foto-vertical img {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 260px;
+  }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .foto-cuadrada1 {
     grid-area: cuadrada-1;
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .foto-cuadrada2 {
     grid-area: cuadrada-2;
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .foto-horizontal {
     grid-area: horizontal;
   }
 }
 
-@media (min-width: 1024px) {
+.movil {
+  padding-inline: 1rem;
+}
+.movil .carousel {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 18px rgba(1, 75, 6, 0.25);
+}
+.movil .carousel-item img {
+  height: 320px;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
   .movil {
     display: none;
   }
@@ -213,19 +444,62 @@ main {
 .escritorio {
   display: none;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .escritorio {
     display: block;
   }
 }
 
 footer {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    text-align: left;
+  }
+}
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+footer ul {
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+footer img {
+  width: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+footer a:hover img {
+  transform: translateY(-4px) rotate(-8deg);
+}
+footer a {
+  display: inline-block;
+  border-radius: 50%;
+}
+@keyframes latido {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
 }
 .btn-promos {
   background-color: rgb(1, 75, 6);
   color: rgb(255, 248, 245);
   border: none;
+  border-radius: 8px;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: bold;
@@ -233,11 +507,12 @@ footer {
 .btn-promos:hover {
   background-color: rgb(24, 226, 58);
   color: rgb(255, 248, 245);
-}
-.btn-promos:focus {
-  outline: 2px solid rgb(18, 135, 212);
-  outline-offset: 2px;
-  box-shadow: none;
+  animation-name: latido;
+  animation-duration: 0.6s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 .btn-promos:active {
   transform: scale(0.97);
@@ -269,17 +544,23 @@ footer {
   color: rgb(1, 75, 6);
   border: 1px solid rgb(244, 122, 7);
   font-size: 1.1rem;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 .list-group-item:hover {
   background-color: rgb(244, 122, 7);
   color: rgb(255, 248, 245);
+  padding-left: 1.75rem;
 }
 
 .tarjetas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media (min-width: 768px) {
+  .tarjetas {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (min-width: 1024px) {
   .tarjetas {
@@ -290,27 +571,79 @@ footer {
 .tarjeta {
   background-color: rgb(249, 187, 95);
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 0.7rem;
   padding: 1.5rem;
-  transition: all 0.3s;
+  border-radius: 8px;
+  transition: transform box-shadow 0.3s ease-in-out;
 }
 .tarjeta:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 18px rgba(1, 75, 6, 0.25);
 }
 .tarjeta h2 {
-  font-size: 1.7rem;
-  padding: 1rem;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .tarjeta h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .tarjeta h2 {
+    font-size: 1.6rem;
+  }
+}
+.tarjeta h2 {
+  padding: 0.5rem;
+  margin: 0;
+}
+.tarjeta img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .tarjeta p {
-  font-size: 1.3rem;
-  padding: 1rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .tarjeta p {
+    font-size: 1.05rem;
+  }
+}
+@media (min-width: 1024px) {
+  .tarjeta p {
+    font-size: 1.1rem;
+  }
+}
+.tarjeta p {
+  padding: 0.5rem;
+  margin: 0;
+}
+.tarjeta legend {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.tarjeta .form-control:focus {
+  border-color: rgb(244, 122, 7);
+  box-shadow: 0 0 0 0.2rem rgba(244, 122, 7, 0.35);
 }
 
+@keyframes desplegar {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .accordion {
   width: 90%;
   max-width: 800px;
@@ -326,7 +659,19 @@ footer {
   background-color: rgb(249, 187, 95);
   color: rgb(1, 75, 6);
   font-family: "Poppins", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.05rem;
+}
+@media (min-width: 768px) {
+  .accordion-button {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .accordion-button {
+    font-size: 1.3rem;
+  }
+}
+.accordion-button {
   font-weight: bold;
 }
 .accordion-button:not(.collapsed) {
@@ -338,11 +683,6 @@ footer {
   background-color: rgb(24, 226, 58);
   color: rgb(255, 248, 245);
 }
-.accordion-button:focus {
-  outline: 2px solid rgb(18, 135, 212);
-  outline-offset: 2px;
-  box-shadow: none;
-}
 .accordion-button:active {
   transform: scale(0.99);
 }
@@ -351,6 +691,12 @@ footer {
   background-color: rgb(255, 248, 245);
   color: rgb(1, 75, 6);
   font-size: 1.1rem;
+  animation-name: desplegar;
+  animation-duration: 0.4s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 /*# sourceMappingURL=styles.css.map */

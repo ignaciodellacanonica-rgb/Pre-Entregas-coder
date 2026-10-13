@@ -1,3 +1,6 @@
+@use "variables" as v;
+
+// ===== Layout =====
 @mixin flex($direccion: row, $justificar: flex-start, $alinear: stretch, $gap: 0) {
   display: flex;
   flex-direction: $direccion;
@@ -14,8 +17,62 @@
   gap: $gap;
 }
 
-@mixin escritorio {
-  @media (min-width: 1024px) {
+// ===== Media queries (mobile-first) =====
+// Mixin con parametro: recibe el ancho minimo desde el que aplica el bloque
+@mixin respond($breakpoint) {
+  @media (min-width: $breakpoint) {
     @content;
+  }
+}
+
+// Atajos para los dos breakpoints del curso
+@mixin tablet {
+  @include respond(v.$bp-tablet) {
+    @content;
+  }
+}
+
+@mixin escritorio {
+  @include respond(v.$bp-escritorio) {
+    @content;
+  }
+}
+
+// ===== Tipografia fluida =====
+// Un tamaño por cada medida: mobile (base), tablet y escritorio
+@mixin tamano-fuente($movil, $tablet: $movil, $escritorio: $tablet) {
+  font-size: $movil;
+
+  @include tablet {
+    font-size: $tablet;
+  }
+
+  @include escritorio {
+    font-size: $escritorio;
+  }
+}
+
+// ===== Animaciones =====
+@mixin transicion($propiedad: all, $duracion: v.$duracion-rapida, $curva: v.$curva-suave) {
+  transition: $propiedad $duracion $curva;
+}
+
+// Aplica una animacion @keyframes ya definida
+@mixin animacion($nombre, $duracion: 0.8s, $retraso: 0s, $repeticiones: 1) {
+  animation-name: $nombre;
+  animation-duration: $duracion;
+  animation-delay: $retraso;
+  animation-iteration-count: $repeticiones;
+  animation-timing-function: v.$curva-suave;
+  animation-fill-mode: both;
+}
+
+// Efecto de "levantar" un elemento al pasar el mouse
+@mixin elevar($distancia: 6px, $sombra: v.$sombra-tarjeta) {
+  @include transicion(transform box-shadow);
+
+  &:hover {
+    transform: translateY(-$distancia); // operador: distancia negativa
+    box-shadow: $sombra;
   }
 }
