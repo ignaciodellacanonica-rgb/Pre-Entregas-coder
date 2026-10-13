@@ -2,7 +2,7 @@
 @use "../utilities/mixins" as m;
 @use "../utilities/extend";
 
-// ===== Animacion nativa: "latido" del boton al pasar el mouse =====
+// el boton late al pasar el mouse
 @keyframes latido {
   0%,
   100% {
@@ -20,20 +20,18 @@
   background-color: v.$color-texto;
   color: v.$color-claro;
   border: none;
-  border-radius: v.$radio;
-  padding: v.$espacio (v.$espacio * 2);
+  padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: bold;
 
   &:hover {
     background-color: v.$color-verde;
     color: v.$color-claro;
-    @include m.animacion(latido, 0.6s);
+    animation: latido 0.6s ease;
   }
 
-  &:focus,
-  &:focus-visible {
-    @extend %foco-visible;
+  &:focus {
+    @extend %foco;
   }
 
   &:active {
@@ -41,7 +39,6 @@
   }
 }
 
-// ===== Modal de promos =====
 .modal-content {
   background-color: v.$color-claro;
   color: v.$color-texto;
@@ -54,10 +51,9 @@
 }
 
 .modal-body p {
-  padding: (v.$espacio * 0.5) 0;
+  padding: 0.5rem 0;
 }
 
-// ===== Lista de beneficios / valores =====
 .list-group {
   width: v.$ancho-contenido;
   max-width: v.$ancho-beneficios;
@@ -69,11 +65,10 @@
   color: v.$color-texto;
   border: 1px solid v.$color-naranja;
   font-size: 1.1rem;
-  @include m.transicion(all);
+  @include m.transicion;
 
   &:hover {
     background-color: v.$color-naranja;
     color: v.$color-claro;
-    padding-left: v.$espacio * 1.75; // el texto se desplaza levemente
   }
 }

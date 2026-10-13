@@ -1,37 +1,26 @@
 @use "../utilities/variables" as v;
 @use "../utilities/mixins" as m;
-@use "../utilities/extend";
 
-.viandas-intro {
-  @extend %texto-centrado;
-}
-
-// ===== Galeria (tablet y escritorio) =====
 .viandas {
   @include m.grid(1fr, $gap: v.$espacio);
-  padding: v.$espacio; // deja lugar al scale() del hover sin generar scroll
+  padding: v.$espacio;
 
   figure {
     margin: 0;
-    @include m.flex(column);
     background-color: v.$color-amarillo;
-    border-radius: v.$radio;
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    @include m.transicion(transform box-shadow);
+    @include m.transicion;
 
     &:hover {
       box-shadow: v.$sombra-vianda;
       transform: scale(1.02);
     }
 
-    &:focus-visible {
+    &:focus {
       box-shadow: v.$sombra-vianda;
-      @extend %foco-visible;
-    }
-
-    &:active {
-      transform: scale(0.98);
+      outline: 2px solid v.$color-azul;
     }
   }
 
@@ -45,12 +34,10 @@
   figcaption {
     padding: 0.8rem;
     text-align: center;
-    font-weight: 700;
   }
 
   @include m.tablet {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
     grid-template-areas:
       "vertical cuadrada-1"
       "vertical cuadrada-2"
@@ -59,7 +46,6 @@
 
   @include m.escritorio {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
     grid-template-areas:
       "vertical cuadrada-1 cuadrada-2"
       "vertical horizontal horizontal";
@@ -70,11 +56,8 @@
   @include m.tablet {
     grid-area: vertical;
 
-    // la foto vertical ocupa dos filas: la imagen se estira para llenarlas
     img {
-      flex: 1 1 0;
-      height: auto;
-      min-height: 260px;
+      height: calc(100% - 50px);
     }
   }
 }
@@ -97,22 +80,15 @@
   }
 }
 
-// ===== Carrusel (solo mobile) =====
+// carrusel en celu, grilla desde tablet
 .movil {
-  padding-inline: v.$espacio;
-
-  .carousel {
-    border-radius: v.$radio * 2;
-    overflow: hidden;
-    box-shadow: v.$sombra-tarjeta;
-  }
+  padding: 0 v.$espacio;
 
   .carousel-item img {
     height: 320px;
     object-fit: cover;
   }
 
-  // desde tablet se muestra la galeria en grilla
   @include m.tablet {
     display: none;
   }

@@ -1,29 +1,15 @@
 @use "../utilities/variables" as v;
-@use "../utilities/mixins" as m;
 @use "../utilities/extend";
-
-// ===== Animacion nativa: la respuesta aparece al desplegarse =====
-@keyframes desplegar {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .accordion {
   width: v.$ancho-contenido;
   max-width: v.$ancho-acordeon;
-  margin: 0 auto (v.$espacio * 2);
+  margin: 0 auto 2rem;
 }
 
 .accordion-item {
   border: 2px solid v.$color-naranja;
-  margin-bottom: v.$espacio * 0.5;
+  margin-bottom: 0.5rem;
 }
 
 .accordion-button {
@@ -32,7 +18,7 @@
   background-color: v.$color-amarillo;
   color: v.$color-texto;
   font-family: v.$fuente-principal;
-  @include m.tamano-fuente(1.05rem, 1.2rem, 1.3rem);
+  font-size: 1.1rem;
   font-weight: bold;
 
   &:not(.collapsed) {
@@ -47,11 +33,7 @@
   }
 
   &:focus {
-    @extend %foco-visible;
-  }
-
-  &:active {
-    transform: scale(0.99);
+    @extend %foco;
   }
 }
 
@@ -59,6 +41,4 @@
   background-color: v.$color-claro;
   color: v.$color-texto;
   font-size: 1.1rem;
-  // se dispara cada vez que la respuesta pasa de oculta a visible
-  @include m.animacion(desplegar, 0.4s);
 }

@@ -2,11 +2,7 @@
 @use "../utilities/mixins" as m;
 
 .tarjetas {
-  @include m.grid(1fr, $gap: v.$espacio);
-
-  @include m.tablet {
-    grid-template-columns: 1fr 1fr;
-  }
+  @include m.grid(1fr, $gap: 1rem);
 
   @include m.escritorio {
     grid-template-columns: 1fr 1fr 1fr;
@@ -16,39 +12,26 @@
 .tarjeta {
   background-color: v.$color-amarillo;
   width: 100%;
-  height: 100%; // todas las tarjetas de una fila miden lo mismo
-  @include m.flex(column, flex-start, center, v.$espacio * 0.7);
-  padding: v.$espacio * 1.5;
-  border-radius: v.$radio;
+  height: 100%;
+  @include m.flex(column, flex-start, center, 0.7rem);
+  padding: 1.5rem;
+  border-radius: 8px;
+  @include m.transicion;
   @include m.elevar(6px);
 
   h2 {
-    @include m.tamano-fuente(1.4rem, 1.5rem, 1.6rem);
-    padding: v.$espacio * 0.5;
-    margin: 0;
+    font-size: 1.5rem;
+    padding: 0.5rem;
   }
 
   img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-radius: v.$radio;
   }
 
   p {
-    @include m.tamano-fuente(1rem, 1.05rem, 1.1rem);
-    padding: v.$espacio * 0.5;
-    margin: 0;
-  }
-
-  // Formulario de contacto dentro de la tarjeta
-  legend {
-    font-weight: 700;
-    margin-bottom: v.$espacio;
-  }
-
-  .form-control:focus {
-    border-color: v.$color-naranja;
-    box-shadow: 0 0 0 0.2rem rgba(v.$color-naranja, 0.35);
+    font-size: 1.1rem;
+    padding: 0.5rem;
   }
 }

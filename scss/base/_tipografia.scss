@@ -7,16 +7,13 @@ body {
 }
 
 h1 {
-  @include m.tamano-fuente(2rem, 2.5rem, 3rem);
-  font-weight: 700;
-  overflow-wrap: break-word;
-}
+  font-size: 2rem;
 
-h2 {
-  @include m.tamano-fuente(1.5rem, 1.75rem, 2rem);
-  font-weight: 700;
-}
+  @include m.tablet {
+    font-size: 2.5rem;
+  }
 
-p {
-  @include m.tamano-fuente(1rem, 1.05rem, 1.1rem);
+  @include m.escritorio {
+    font-size: 3rem;
+  }
 }

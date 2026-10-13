@@ -8,9 +8,6 @@
 
 body {
   background-color: v.$color-fondo;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 a {
@@ -20,16 +17,4 @@ a {
 img {
   max-width: 100%;
   height: auto;
-}
-
-// Accesibilidad: si el usuario pidio "reducir movimiento" en su sistema,
-// se apagan las animaciones y transiciones (incluidas las de AOS)
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }

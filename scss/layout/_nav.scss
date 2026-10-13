@@ -2,83 +2,52 @@
 @use "../utilities/mixins" as m;
 @use "../utilities/extend";
 
-// ===== Logo =====
 .navbar-brand img {
   width: 70px;
-  @include m.transicion(transform, v.$duracion-lenta);
-
-  &:hover {
-    transform: rotate(-6deg) scale(1.05);
-  }
-
-  @include m.tablet {
-    width: 90px;
-  }
 
   @include m.escritorio {
     width: 100px;
   }
 }
 
-// ===== Lista del menu =====
 header nav ul {
   @extend %lista-flexible;
-  // mobile: menu desplegado en columna, mas compacto
-  gap: v.$espacio * 0.25;
-  padding-block: v.$espacio * 0.5;
-
-  @include m.escritorio {
-    gap: v.$espacio * 0.5;
-    padding-block: 0;
-  }
+  gap: 0.5rem;
 }
 
-// ===== Boton hamburguesa =====
 .hamburguesa {
   @extend %transicion-corta;
 
   color: v.$color-azul;
   border: 1px solid v.$color-azul;
   font-size: 2rem;
-  line-height: 1;
-  padding: (v.$espacio * 0.25) (v.$espacio * 0.75);
 
-  &:hover,
-  &[aria-expanded="true"] {
+  &:hover {
     background-color: v.$color-azul;
     color: v.$color-claro;
   }
 
-  // Transformacion: gira cuando el menu esta abierto
+  // gira cuando se abre el menu
   &[aria-expanded="true"] {
     transform: rotate(90deg);
   }
 
-  &:focus,
-  &:focus-visible {
-    @extend %foco-visible;
-  }
-
-  &:active {
-    transform: scale(0.95);
+  &:focus {
+    @extend %foco;
   }
 }
 
-// ===== Links del menu =====
 .link.menu {
   color: rgb(242, 245, 247);
-  @include m.tamano-fuente(1.25rem, 1.25rem, 1.1rem);
+  font-size: 1.25rem;
   font-weight: bold;
   padding: 0.5em;
-  border-radius: v.$radio * 0.5;
-  @include m.transicion(all, v.$duracion-lenta);
+  border-radius: 5px;
+  @include m.transicion(all, 0.5s);
 
   @include m.escritorio {
+    font-size: 1.1rem;
     white-space: nowrap;
-  }
-
-  @include m.respond(1200px) {
-    font-size: 1.25rem;
   }
 
   &:visited {
@@ -93,10 +62,9 @@ header nav ul {
   &:hover {
     background-color: v.$color-verde;
     color: rgb(242, 245, 247);
-    transform: translateY(-2px);
   }
 
-  &:focus-visible {
-    @extend %foco-visible;
+  &:focus {
+    @extend %foco;
   }
 }

@@ -1,7 +1,5 @@
-@use "../utilities/variables" as v;
 @use "../utilities/extend";
 
 header {
   @extend %barras;
-  padding-block: v.$espacio * 0.25;
 }

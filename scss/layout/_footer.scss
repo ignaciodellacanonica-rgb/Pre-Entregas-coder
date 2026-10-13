@@ -5,24 +5,21 @@
 footer {
   @extend %barras;
   @include m.flex(column, center, center, v.$espacio);
-  padding: (v.$espacio * 1.5) v.$espacio;
+  margin-top: 2rem;
+  padding: v.$espacio;
   text-align: center;
 
   @include m.tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding-inline: v.$espacio * 2;
-    text-align: left;
   }
 
   p {
     margin: 0;
-    font-size: 0.95rem;
   }
 
   ul {
     @extend %lista-flexible;
-    flex-wrap: wrap;
     padding: 0;
     margin: 0;
   }
@@ -30,19 +27,9 @@ footer {
   img {
     width: 40px;
     @include m.transicion(transform);
-  }
 
-  // Transformacion al pasar el mouse por las redes
-  a:hover img {
-    transform: translateY(-4px) rotate(-8deg);
-  }
-
-  a {
-    display: inline-block;
-    border-radius: 50%;
-
-    &:focus-visible {
-      @extend %foco-visible;
+    &:hover {
+      transform: translateY(-4px);
     }
   }
 }
