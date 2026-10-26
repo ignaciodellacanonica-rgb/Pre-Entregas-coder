@@ -4,7 +4,7 @@ Proyecto final del curso de Desarrollo Web de Coderhouse. Es un sitio estático 
 
 ## Links
 
-- Sitio en Netlify: NETLIFY_LINK
+- Sitio en Netlify: https://pre-entrega-einar.netlify.app/
 - Sitio en GitHub Pages: https://ignaciodellacanonica-rgb.github.io/Pre-Entregas-coder/
 - Repositorio: https://github.com/ignaciodellacanonica-rgb/Pre-Entregas-coder
 
